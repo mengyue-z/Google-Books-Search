@@ -4,14 +4,17 @@ import { Container, Row, Col } from "../Grid";
 import API from "../../utils/API";
 import {Button} from "react-bootstrap";
 import "./style.css";
+// Exporting both BookList and BookListItem from this file
 
-
-export function BookList({ children }) {
+// RecipeList renders a bootstrap list item
+export function SavedList({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-export function BookListItem(props) {
+// RecipeListItem renders a bootstrap list item containing data from the recipe api call
+export function SavedListItem(props) {
   const {
+    id,
     image,
     authors,
     title,
@@ -19,12 +22,23 @@ export function BookListItem(props) {
     link
   } = props;
   const bookData = {
+    id,
     image,
     authors,
     title,
     description,
     link
   }
+
+  async function handleDelete(e){
+    var bookId = e.target.getAttribute("value")
+    console.log(bookId);
+    const response = await API.deleteBooks(bookId)
+    console.log(response)
+    props.setBooks(response.data)
+  }
+
+
   return (
     <li className="list-group-item">
       <Container>
@@ -39,8 +53,8 @@ export function BookListItem(props) {
             <a className = "view-a" rel="noreferrer noopener" target="_blank" href={link}>
               View
             </a>
-            <Button className = "save-btn" variant = "outline-info" onClick = {()=>API.saveBook(bookData)}>
-              Save
+            <Button className = "save-btn" variant = "outline-info" value={id} onClick = {handleDelete}>
+              Delete
               </Button>
           </Col>
         </Row>

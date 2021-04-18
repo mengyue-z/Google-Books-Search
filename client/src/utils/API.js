@@ -11,5 +11,8 @@ export default {
   },
   savedBooks: function(){
     return axios.get("/api/books")
+  },
+  deleteBooks: function(bookId){
+    return axios.delete(`/api/books/${bookId}`)
   }
 };

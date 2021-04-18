@@ -25,4 +25,15 @@ router.get("/books", (req, res) => {
     });
 });
 
+router.delete("/books/:id", (req, res) => {
+  const id = req.params.id;
+  Book.findOneAndDelete({ _id: id })
+    .then(dbBook => {
+      res.json(dbBook);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 module.exports = router;

@@ -2,11 +2,12 @@ import React from "react";
 import "./style.css";
 
 function Footer() {
-  return (
-    <footer className="footer">
-      <span>Mengyue Zhang 2021</span>
-    </footer>
-  );
+  const year = new Date().getFullYear();
+return (
+  <footer className="footer text-center">
+    <span>©Mengyue Zhang {year}</span>
+  </footer>
+);
 }
 
 export default Footer;

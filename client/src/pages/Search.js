@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import API from "../utils/API";
 import { BookList, BookListItem } from "../components/BookList";
 import { Container, Row, Col } from "../components/Grid";
+import "../App.css"
 
 function Search() {
 
@@ -19,7 +20,6 @@ function Search() {
   };
 
   const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     API.getBooks(bookSearch)
       .then(res => {
@@ -40,7 +40,6 @@ function Search() {
                 <Row>
                   <Col size="xs-9 sm-10">
                   <h2>Book Search</h2>
-                  <p>book</p>
                     <Input
                       name="BookSearch"
                       value={bookSearch}
@@ -51,7 +50,7 @@ function Search() {
                   <Col size="xs-3 sm-2">
                     <Button
                       onClick={handleFormSubmit}
-                      type="success"
+                      type="dark"
                       className="input-lg"
                     >
                         Search
@@ -63,6 +62,7 @@ function Search() {
           </Col>
         </Row>
         <Row>
+        <div id="book-display">
           <Col size="xs-12">
             {!books.length ? (
               <h1 className="text-center">No Books to Display</h1>
@@ -83,6 +83,7 @@ function Search() {
               </BookList>
             )}
           </Col>
+          </div>
         </Row>
       </Container>
     </div>
