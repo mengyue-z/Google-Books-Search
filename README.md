@@ -11,8 +11,8 @@ Node.js
 Axios
 
 ## Screenshots
-![App Screenshot](./public/images/screenshot1.png)
-![App Screenshot](./public/images/screenshot2.png)
+![App Screenshot](./client/public/images/screenshot1.png)
+![App Screenshot](./client/public/images/screenshot2.png)
 
 ## Links
 
