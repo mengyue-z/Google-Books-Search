@@ -33,7 +33,8 @@ export function SavedListItem(props) {
   async function handleDelete(e){
     var bookId = e.target.getAttribute("value")
     console.log(bookId);
-    const response = await API.deleteBooks(bookId)
+    API.deleteBooks(bookId)
+    const response = await API.savedBooks();
     console.log(response)
     props.setBooks(response.data)
   }

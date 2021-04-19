@@ -29,7 +29,8 @@ router.delete("/books/:id", (req, res) => {
   const id = req.params.id;
   Book.findOneAndDelete({ _id: id })
     .then(dbBook => {
-      res.json(dbBook);
+      const updatedList = Book.find({});
+      res.json(dbBook, updatedList);
     })
     .catch(err => {
       res.status(400).json(err);
