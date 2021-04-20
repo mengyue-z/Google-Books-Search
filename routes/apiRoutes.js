@@ -28,12 +28,14 @@ router.get("/books", (req, res) => {
 router.delete("/books/:id", (req, res) => {
   const id = req.params.id;
   Book.findOneAndDelete({ _id: id })
-    .then(dbBook => {
-      const updatedList = Book.find({});
-      res.json(dbBook, updatedList);
+    .then( async () => {
+      const updatedList = await Book.find({});
+      res.json(updatedList);
+      //res.status(200)
     })
     .catch(err => {
       res.status(400).json(err);
+      console.log(err)
     });
 });
 
