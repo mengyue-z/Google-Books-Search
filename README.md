@@ -2,7 +2,7 @@
 
 ## Description
 
-* This is a React-based Google Books Search app. Users can search book with Google Books API and save them for future reference.
+* This is a React-based Google Books Search app. Users can search books with Google Books API and save them for future reference.
 
 ## Technologies Used
 HTML/CSS/JavaScript
